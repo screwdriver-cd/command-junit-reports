@@ -7,7 +7,7 @@ jobs:
     steps:
       - validate: sd-cmd validate -f ./sd-command.yaml
       - install-bats: |
-          sudo yum install -y y-epel-release
+          yum install -y y-epel-release
           yum install -y bats --enablerepo epel
       - test: bats -t tests.sh | tee ${TEST_DIR}/tests.sh.tap
 
