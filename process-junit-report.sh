@@ -12,7 +12,7 @@
 set -e
 
 if [ $# -ne 2 ] || ! [ -d "$1" ]; then
-  echo "Usage: $0 <path-to-surefire-reports> <update-sd-ui [true | false]>" >&2
+  echo "Usage: $0 <path-to-junit-reports> <update-sd-ui [true | false]>" >&2
   exit -1
 fi
 
@@ -21,7 +21,7 @@ if ! [ -f "/usr/bin/ruby" ]; then
   sudo yum install --debuglevel=1 -y ruby
 fi
 # One more check for ruby
-[ ! -f "`which ruby`" ] && echo "ruby not installed at `which ruby`!" && exit -1
+command -v ruby >/dev/null 2>&1 || { echo >&2 "ruby is required but it's not installed. Aborting!"; exit 1; }
 # Clone tools
 git clone --single-branch --branch master git@github.com:screwdriver-cd/junit-reports.git /tmp/junit-tools
 if [ $? -ne 0 ]; then
