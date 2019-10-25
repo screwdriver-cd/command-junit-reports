@@ -11,11 +11,7 @@ jobs:
           sudo yum install -y bats --enablerepo epel
       test: bats -t tests.sh | tee ${TEST_DIR}/tests.sh.tap
 
-  publish-stable:
-    steps:
-      - publish: sd-cmd publish -f ./sd-command.yaml -t stable
-
-  publish-latest:
+  publish:
     requires: [validate]
     steps:
       - publish: sd-cmd publish -f ./sd-command.yaml

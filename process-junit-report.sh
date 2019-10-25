@@ -25,7 +25,7 @@ command -v ruby >/dev/null 2>&1 || { echo >&2 "ruby is required but it's not ins
 # Clone tools
 git clone --single-branch --branch master git@github.com:screwdriver-cd/junit-reports.git /tmp/junit-tools
 if [ $? -ne 0 ]; then
-  echo "Something went wrong with the tool. Unable to find ruby script"
+  echo "Unable to find parser.Aborting!"
   exit -1
 fi
 
