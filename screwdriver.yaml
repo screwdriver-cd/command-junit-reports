@@ -9,7 +9,7 @@ jobs:
       - install-bats: |
           sudo yum install -y y-epel-release
           sudo yum install -y bats --enablerepo epel
-      test: bats -t tests.sh | tee ${TEST_DIR}/tests.sh.tap
+      - test: bats -t tests.sh | tee ${TEST_DIR}/tests.sh.tap
 
   publish:
     requires: [validate]
