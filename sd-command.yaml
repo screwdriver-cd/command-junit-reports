@@ -1,0 +1,14 @@
+namespace: screwdriver-cd
+name: junit-tests
+version: '1.0'
+description: |
+  Process junit reports in surefire or touchstone format to compute total number of pass, failed tests and optionally updated SDV4 UI
+usage: |
+  sd-cmd exec screwdriver-cd/junit-tests@<VERSION|TAG> <JUNIT REPORTS DIRECTORY> <UPDATE SD UI [TRUE|FALSE] >
+  Args:
+          DIRECTORY             Directory to surefire reports [surefire | touchstone].
+          SDUI                  Update SDV4 UI in a format fail/total tests.
+maintainer: rchopde@verizonmedia.com
+format: binary
+binary:
+  file: ./process-junit-report.sh
